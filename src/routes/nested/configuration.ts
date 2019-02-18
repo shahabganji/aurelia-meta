@@ -12,7 +12,7 @@ export class NestedRoutes{
 
     config.map([
       {
-        route: '', name: 'default', moduleId: PLATFORM.moduleName('./default'),
+        route: '', name: 'default', moduleId: PLATFORM.moduleName('./page1'),
         nav: true, title: 'Default',
         meta: [
           {

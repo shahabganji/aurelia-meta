@@ -52,7 +52,7 @@ export class App {
 
   @computedFrom('router.currentInstruction')
   get activeRoute() {
-    return this.router.currentInstruction.config;
+    return this.router.currentInstruction.getAllInstructions().flatMap(inst=> inst.config.meta);
   }
 
 }
