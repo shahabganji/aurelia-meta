@@ -1,10 +1,9 @@
 import { RouterConfiguration, Router } from 'aurelia-router';
 import { PLATFORM } from 'aurelia-pal';
-import { charset, viewport } from 'resources/demo/router-extend';
-import { MetaServiceHandler } from 'resources/demo/meta-service-handler';
+import { charset, viewport } from 'resources/aurelia-meta/router-extend';
+import { computedFrom } from 'aurelia-binding';
 
 export class App {
-  message = 'Hello World!';
 
   router: Router;
 
@@ -34,11 +33,26 @@ export class App {
           { name: 'developer', content: 'Shahab' },
           { name: 'developer', content: 'Hamed' }
         ]
+      } , 
+
+      {
+        route: 'nested', name: 'nested', moduleId: PLATFORM.moduleName('./routes/nested/configuration'),
+        nav: true, title: 'Nested',
+        meta: [
+          { property: 'nested:about', content: 'This is a nested route' }
+        ]
       }
+
     ]);
 
     config.addMeta([charset, viewport]);
     this.router.addMeta([{ name: 'author', content: "shahabganji" }]);
 
   }
+
+  @computedFrom('router.currentInstruction')
+  get activeRoute() {
+    return this.router.currentInstruction.config;
+  }
+
 }

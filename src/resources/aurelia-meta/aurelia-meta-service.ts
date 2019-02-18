@@ -1,16 +1,16 @@
 
-import { autoinject, singleton } from 'aurelia-framework';
+import { autoinject, singleton, inject } from 'aurelia-framework';
 import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
-import { NavigationInstruction } from 'aurelia-router';
+import { NavigationInstruction, Router } from 'aurelia-router';
 import { INamedMetaTag, ICharSetMetaTag, IHttpEquivMetaTag, IPropertyMetaTag } from './router-extend';
 import './router-extend';
 import { MetaServiceHelper } from './meta-service-helper';
 
 
 
-@autoinject()
+@inject(EventAggregator, Router)
 @singleton()
-export class MetaServiceHandler {
+export class AureliaMetaService {
 
   private processingSubscription: Subscription;
   private canceledSubscription: Subscription;
@@ -18,7 +18,7 @@ export class MetaServiceHandler {
   private static PROCESSING_ROUTE_EVENT: string = "router:navigation:processing";
   private static CANCELED_ROUTE_EVENT: string = "router:navigation:canceled";
 
-  constructor(private ea: EventAggregator) {
+  constructor(private ea: EventAggregator, private router:Router) {
     this.start();
   }
 
@@ -29,10 +29,15 @@ export class MetaServiceHandler {
       return;
     }
 
-    this.processingSubscription = this.ea.subscribe(MetaServiceHandler.PROCESSING_ROUTE_EVENT, (payload) => {
+    this.processingSubscription = this.ea.subscribe(AureliaMetaService.PROCESSING_ROUTE_EVENT, (payload) => {
 
       const prevRoute: NavigationInstruction = payload.instruction.previousInstruction;
       const nextRoute: NavigationInstruction = payload.instruction;
+
+      console.log("**************************************************");
+      console.log(prevRoute);
+      console.log(nextRoute);
+      console.log("**************************************************");
 
       if (prevRoute) {
         const prevTags: Array<INamedMetaTag | IPropertyMetaTag> = prevRoute.config.meta;
@@ -48,7 +53,7 @@ export class MetaServiceHandler {
 
     });
 
-    this.canceledSubscription = this.ea.subscribe(MetaServiceHandler.CANCELED_ROUTE_EVENT, (payload) => {
+    this.canceledSubscription = this.ea.subscribe(AureliaMetaService.CANCELED_ROUTE_EVENT, (payload) => {
 
       const canceled: NavigationInstruction = payload.instruction;
 

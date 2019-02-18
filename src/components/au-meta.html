@@ -1,0 +1,15 @@
+<template bindable="meta">
+
+  <fieldset>
+
+    <legend>List of meta tags for current route</legend>
+
+    <ul>
+      <li repeat.for="m of meta">
+        ${m.name || m.property} : ${m.content}
+      </li>
+    </ul>
+
+  </fieldset>
+
+</template>

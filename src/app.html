@@ -1,21 +1,17 @@
 <template>
-  <demo-element value.bind="message"></demo-element>
+
+    <require from="./components/au-meta.html"></require>
+  <require from="./components/navigation.html"></require>
+
+ 
+
+  <navigation router.bind="router"></navigation>
 
   <hr />
 
-  <a href="/#/">
-    Home
-  </a>
-
-  |
-
-  <a href="/#/about">
-    About
-  </a>
-
+  <au-meta meta.bind="activeRoute.meta"></au-meta>
 
   <hr />
-
 
   <router-view></router-view>
 

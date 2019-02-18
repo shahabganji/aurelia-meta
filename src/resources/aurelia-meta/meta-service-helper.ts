@@ -50,7 +50,7 @@ export class MetaServiceHelper {
 
     tags.forEach(tag => {
 
-      let isNamed = ("name" in tag);
+      let isNamed = tag["name"] ? true : false;
 
       let current = undefined;
       if (isNamed) current = <INamedMetaTag>tag;
