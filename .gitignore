@@ -27,7 +27,11 @@ Thumbs.db
 # Dependencies
 node_modules
 
+# test coverage 
 /test/coverage-jest
+
+# npm packages
+**/*.tgz
 
 # Compiled files
 /scripts

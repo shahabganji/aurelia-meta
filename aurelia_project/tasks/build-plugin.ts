@@ -72,6 +72,5 @@ export default gulp.series(
     pluginMarkupSystem,
     transpilePluginSystem,
     pluginScssSystem
-  ),
-  copyREADME
+  )
 );
