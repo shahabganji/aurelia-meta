@@ -30,8 +30,7 @@ export class App {
         nav: true, title: 'About',
         meta: [
           { name: 'about', content: 'This is an about page' },
-          { name: 'developer', content: 'Shahab' },
-          { name: 'developer', content: 'Hamed' }
+          { name: 'developer', content: 'Shahab' }
         ]
       } , 
 
