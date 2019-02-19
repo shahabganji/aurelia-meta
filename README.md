@@ -15,7 +15,7 @@ aurelia.use.plugin('aurelia-meta');
 ```
 * Bear in mind to use `PLATFORM.moduleName` if you use `webpack`
 
-3. It's ready to use, just add your meta tags to your routes as a property, no matter its a parent or child route
+3. It's ready to use, just add your meta tags to your routes as a property, no matter whether it's a parent route or a child one.
 
 ```ts
 config.map([
@@ -70,3 +70,8 @@ export class HomeRouteComponent{
 ```
 
 * Keep in mind that you are responsible to remove tags that you have added manually, the plugin only automatically handles tags defined on the routes.
+
+## Build
+
+* To build the plugin `clone` this repository and run `au build-plugin`
+* To run the sample project run `npm start`
