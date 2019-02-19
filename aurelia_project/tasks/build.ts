@@ -9,6 +9,7 @@ import watch from './watch';
 // @ts-ignore
 import * as project from '../aurelia.json';
 
+
 let build = gulp.series(
   readProjectConfiguration,
   gulp.parallel(transpile, processMarkup, processJson, processCSS, copyFiles),

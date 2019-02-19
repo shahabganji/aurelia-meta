@@ -25,8 +25,29 @@ import * as del from "del";
 // @ts-ignore
 import * as project from "../aurelia.json";
 
+
+var path = require('path');
+var gulpCopy = require("gulp-copy");
+
+
 function clean() {
   return del(project.plugin.output);
+}
+
+
+function copyREADME() {
+
+  const files = project.plugin.source.files.map(file => {
+    return path.join(__dirname, '..', '..', file);
+  });
+
+  const dist = path.join(__dirname, '..', '..', project.plugin.output);
+
+  files.forEach(file => {
+    console.log('\x1b[34m%s\x1b[37m%s\x1b[34m%s\x1b[37m%s\x1b[0m','Copy file ', file, ' to ', dist)
+    gulp.src(file).pipe(gulpCopy(dist, { prefix: 2 }));
+    console.log( '\x1b[32m%s\x1b[37m%s\x1b[32m%s\x1b[0m' , 'File ', file, ' copied');
+  });
 }
 
 export default gulp.series(
@@ -46,10 +67,11 @@ export default gulp.series(
     transpilePluginES2015,
     pluginCSSES2015,
     pluginScssES2015,
-    
+
     pluginCSSSystem,
     pluginMarkupSystem,
     transpilePluginSystem,
     pluginScssSystem
-  )
+  ),
+  copyREADME
 );

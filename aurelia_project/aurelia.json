@@ -1,5 +1,5 @@
 {
-  "name": "demo-plugin-cli-ts",
+  "name": "aurelia-meta",
   "type": "project:application",
   "bundler": {
     "id": "cli",
@@ -10,7 +10,10 @@
       "js": "src/resources/**/*.ts",
       "html": "src/resources/**/*.html",
       "css": "src/resources/**/*.css",
-      "scss": "src/resources/**/*.scss"
+      "scss": "src/resources/**/*.scss",
+      "files": [
+        "README.md" , "package.json"
+      ]
     },
     "output": "dist"
   },

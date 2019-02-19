@@ -1,10 +1,10 @@
 {
-  "name": "auplugin",
-  "description": "An Aurelia client application.",
-  "version": "0.1.0",
+  "name": "aurelia-meta",
+  "description": "A plugin on top of `aurelia-router` to handle meta tags of your application, both automatically and manually.",
+  "version": "1.0.0",
   "repository": {
-    "type": "???",
-    "url": "???"
+    "type": "github",
+    "url": "https://github.com/shahabganji/aurelia-meta"
   },
   "license": "MIT",
   "dependencies": {
@@ -40,6 +40,7 @@
     "file-loader": "^2.0.0",
     "gulp": "^4.0.0",
     "gulp-changed-in-place": "^2.3.0",
+    "gulp-copy": "^4.0.1",
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^1.4.0",
