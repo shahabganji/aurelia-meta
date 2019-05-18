@@ -1,12 +1,34 @@
 {
   "name": "aurelia-meta",
-  "description": "A plugin on top of `aurelia-router` to handle meta tags of your application, both automatically and manually.",
+  "description": "A plugin on top of aurelia-router to handle meta tags of your application, both automatically and manually.",
   "version": "1.0.0",
   "repository": {
-    "type": "github",
+    "type": "git",
     "url": "https://github.com/shahabganji/aurelia-meta"
   },
+  "keywords": [
+    "aurelia",
+    "meta-tags",
+    "aurelia-meta"
+  ],
+  "homepage": "https://github.com/shahabganji/aurelia-meta",
+  "bugs": {
+    "url": "https://github.com/shahabganji/aurelia-meta/issues"
+  },
   "license": "MIT",
+  "author": "Saeed Ganji <shahabganji@gmail.com> (http://shahabganji.me/)",
+  "main": "dist/commonjs/index.js",
+  "module": "dist/es2015/index.js",
+  "typings": "dist/commonjs/index.d.ts",
+  "jspm": {
+    "registry": "npm",
+    "main": "index",
+    "format": "amd",
+    "directories": {
+      "dist": "dist/amd"
+    }
+  },
+
   "dependencies": {
     "aurelia-event-aggregator": "^1.0.2",
     "aurelia-router": "^1.6.3"
@@ -122,6 +144,5 @@
     "version": "standard-changelog && git add CHANGELOG.md",
     "prepare": "au build-plugin",
     "postversion": "git push && git push --tags"
-  },
-  "main": "dist/app.bundle.js"
+  }
 }
